@@ -10,11 +10,12 @@ def divideFile():
   imgwidth = 1200
   imgheight = 900
   
+  # divide into 9 images
   height = imgheight // 3
   width = imgwidth // 3
   print(height)
   print(width)
-  # divide into 9 images
+  
   # horixontal
   for i in range(1, 4):
       # vertical
