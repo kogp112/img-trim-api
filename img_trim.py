@@ -3,18 +3,26 @@ from PIL import Image
 
 # divide image file
 def divideFile():
-  img = Image.open("./test.jpg", "r")
-  img.show()
+  im = Image.open("./test.jpg", "r")
   
   # print image size in pixels
-  width = img.size[0]
-  height = img.size[1]
+  print(im.size)
+  imgwidth = 1200
+  imgheight = 900
   
-  # cut image (left, upper, right, lower)
-  box = (0, 0, width / 2, height)
-  print(box)
-  croppedImage = img.crop(box)
-  outfile = "./croppedTest.jpg"
-  croppedImage.save(outfile, "JPEG")
-  
+  height = imgheight // 3
+  width = imgwidth // 3
+  print(height)
+  print(width)
+  # divide into 9 images
+  # horixontal
+  for i in range(1, 4):
+      # vertical
+      for j in range(1, 4):
+          box = ((j - 1) * width, (i - 1) * height, j * width, i * height)
+          print(box)
+          a = im.crop(box)
+          path = "./IMG-" + str(i) + str(j) + "s.jpg"
+          a.save(path, "JPEG")
+
 divideFile()
