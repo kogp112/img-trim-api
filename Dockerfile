@@ -1,6 +1,6 @@
 FROM python:3
 
-ADD img_trim.py /
+ADD image_crop.py /
 RUN pip install Pillow
 COPY ./test.jpg /
-CMD [ "python", "./img_crop.py" ]
+CMD [ "python", "./image_crop.py", "test.jpg", "4" ]

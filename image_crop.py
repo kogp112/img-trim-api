@@ -3,7 +3,10 @@ from PIL import Image
 
 # divide image file
 def divideFile():
-  im = Image.open("./test.jpg", "r")
+  file_name = "./" + sys.argv[1]
+  num = sys.argv[2]
+  
+  im = Image.open(file_name, "r")
   
   # print image size in pixels
   print(im.size)
@@ -11,15 +14,13 @@ def divideFile():
   imgheight = 900
   
   # divide into 9 images
-  height = imgheight // 3
-  width = imgwidth // 3
-  print(height)
-  print(width)
+  height = imgheight // int(num)
+  width = imgwidth // int(num)
   
   # horixontal
-  for i in range(1, 4):
+  for i in range(1, int(num) + 1):
       # vertical
-      for j in range(1, 4):
+      for j in range(1, int(num) + 1):
           box = ((j - 1) * width, (i - 1) * height, j * width, i * height)
           print(box)
           a = im.crop(box)
